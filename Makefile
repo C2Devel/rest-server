@@ -1,7 +1,7 @@
 .PHONY: all clean test restic
 
 PACKAGE = rest-server
-VERSION = $(shell rpm -q --qf "%{version}\n" --specfile $(PACKAGE).spec | head -1)
+VERSION = $(shell sed -n s/[[:space:]]*Version:[[:space:]]*//p $(PACKAGE).spec)
 
 HEAD_SHA := $(shell git rev-parse --short --verify HEAD)
 TAG      := $(shell git show-ref --tags -d | grep $(HEAD_SHA) | \
