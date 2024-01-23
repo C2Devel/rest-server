@@ -36,11 +36,11 @@ if (goipath == "") then
 end
 -- Compute and set spec variables
 if (forgeurl ~= "") then
-	rpm.expand("%forgemeta %{?-v} %{?-i} %{?-s} %{?-p} -u " .. forgeurl .. "\\n")
+	rpm.expand("%forgemeta %{?-v} %{?-i} %{?-s} %{?-p} " .. forgeurl .. "\\n")
 	safeset("gourl", forgeurl)
 else
 	safeset("gourl", "https://" .. goipath)
-	rpm.expand("%forgemeta %{?-v} %{?-i} -s     %{?-p} -u %{gourl}\\n")
+	rpm.expand("%forgemeta %{?-v} %{?-i} -s     %{?-p} %{gourl}\\n")
 end
 if (rpm.expand("%{?forgesource}") ~= "") then
 	safeset("gosource", "%{forgesource}")
@@ -73,7 +73,7 @@ using restic backup client via the rest: URL.}
 
 
 Name:    rest-server
-Release: CROC2%{buildid}%{?dist}
+Release: CROC3%{buildid}%{?dist}
 Summary: Rest Server is a high performance HTTP server that implements restic's REST backend API.
 URL:     %{gourl}
 License: BSD
