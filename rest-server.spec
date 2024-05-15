@@ -73,7 +73,7 @@ using restic backup client via the rest: URL.}
 
 
 Name:    rest-server
-Release: CROC3%{buildid}%{?dist}
+Release: ROCKIT4%{buildid}%{?dist}
 Summary: Rest Server is a high performance HTTP server that implements restic's REST backend API.
 URL:     %{gourl}
 License: BSD
